@@ -1,0 +1,142 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "serverName": {
+            "required": true,
+            "type": "string"
+        },
+        "databaseName": {
+            "required": true,
+            "type": "string"
+        },
+        "tableAuditingPolicyName": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "default"
+            ]
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "description": "ARM resource.",
+                            "properties": {
+                                "id": {
+                                    "description": "Resource ID.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Resource name.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "Resource type.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object",
+                            "x-ms-azure-resource": true
+                        }
+                    ],
+                    "description": "ARM proxy resource.",
+                    "properties": {},
+                    "type": "object"
+                }
+            ],
+            "description": "A database table auditing policy.",
+            "properties": {
+                "kind": {
+                    "description": "Resource kind.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "location": {
+                    "description": "Resource location.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "properties": {
+                    "description": "Resource properties.",
+                    "x-ms-client-flatten": true,
+                    "allOf": [
+                        {
+                            "description": "Properties of a table auditing policy.",
+                            "properties": {
+                                "auditLogsTableName": {
+                                    "description": "The audit logs table name.",
+                                    "type": "string"
+                                },
+                                "auditingState": {
+                                    "description": "The state of the policy.",
+                                    "type": "string"
+                                },
+                                "eventTypesToAudit": {
+                                    "description": "Comma-separated list of event types to audit.",
+                                    "type": "string"
+                                },
+                                "fullAuditLogsTableName": {
+                                    "description": "The full audit logs table name.",
+                                    "type": "string"
+                                },
+                                "retentionDays": {
+                                    "description": "The number of days to keep in the audit logs.",
+                                    "type": "string"
+                                },
+                                "storageAccountKey": {
+                                    "description": "The key of the auditing storage account.",
+                                    "type": "string"
+                                },
+                                "storageAccountName": {
+                                    "description": "The table storage account name",
+                                    "type": "string"
+                                },
+                                "storageAccountResourceGroupName": {
+                                    "description": "The table storage account resource group name",
+                                    "type": "string"
+                                },
+                                "storageAccountSecondaryKey": {
+                                    "description": "The secondary key of the auditing storage account.",
+                                    "type": "string"
+                                },
+                                "storageAccountSubscriptionId": {
+                                    "description": "The table storage subscription Id.",
+                                    "format": "uuid",
+                                    "type": "string"
+                                },
+                                "storageTableEndpoint": {
+                                    "description": "The storage table endpoint.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    ],
+                    "properties": {
+                        "useServerDefault": {
+                            "description": "Whether server default is enabled or disabled.",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

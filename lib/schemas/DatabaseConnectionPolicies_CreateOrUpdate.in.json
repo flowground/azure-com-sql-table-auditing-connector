@@ -1,0 +1,114 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "serverName": {
+            "required": true,
+            "type": "string"
+        },
+        "databaseName": {
+            "required": true,
+            "type": "string"
+        },
+        "connectionPolicyName": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "default"
+            ]
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "description": "ARM resource.",
+                            "properties": {
+                                "id": {
+                                    "description": "Resource ID.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Resource name.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "Resource type.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object",
+                            "x-ms-azure-resource": true
+                        }
+                    ],
+                    "description": "ARM proxy resource.",
+                    "properties": {},
+                    "type": "object"
+                }
+            ],
+            "description": "A database connection policy.",
+            "properties": {
+                "kind": {
+                    "description": "Resource kind.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "location": {
+                    "description": "Resource location.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "properties": {
+                    "description": "Resource properties.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "proxyDnsName": {
+                            "description": "The fully qualified host name of the auditing proxy.",
+                            "type": "string"
+                        },
+                        "proxyPort": {
+                            "description": "The port number of the auditing proxy.",
+                            "type": "string"
+                        },
+                        "redirectionState": {
+                            "description": "The state of proxy redirection.",
+                            "type": "string"
+                        },
+                        "securityEnabledAccess": {
+                            "description": "The state of security access.",
+                            "type": "string"
+                        },
+                        "state": {
+                            "description": "The connection policy state.",
+                            "type": "string"
+                        },
+                        "useServerDefault": {
+                            "description": "Whether server default is enabled or disabled.",
+                            "type": "string"
+                        },
+                        "visibility": {
+                            "description": "The visibility of the auditing proxy.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
